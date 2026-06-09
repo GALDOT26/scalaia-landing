@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="SCALA OS - Empresa de tecnologia ecommerce llave en mano. Cerebro IA, modulos operativos e integracion con MercadoLibre, MercadoPago, Tienda Nube y AFIP.">
+<meta property="og:title" content="SCALA OS — Sistema operativo de e-commerce">
+<meta property="og:description" content="Empresa de tecnologia ecommerce llave en mano para sellers profesionales de MercadoLibre.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scalaia.com.ar">
+<title>SCALA OS - Tecnologia ecommerce llave en mano</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #050912;
+  --bg-2: #0a1628;
+  --bg-3: #0f1e35;
+  --line: #1e293b;
+  --green: #00e87a;
+  --green-2: #00a85a;
+  --cyan: #22ccff;
+  --orange: #ff7700;
+  --yellow: #FFE600;
+  --pink: #e91e8c;
+  --purple: #aa66ff;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --text-dim-2: #64748b;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 720px) { .container { padding: 0 16px; } }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(5, 9, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+nav .row { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.brand { font-weight: 900; font-size: 18px; letter-spacing: 2px; color: #fff; text-decoration: none; }
+.brand .dot { color: var(--green); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-weight: 500; font-size: 14px; }
+.nav-links a:hover { color: var(--text); }
+@media (max-width: 720px) { .nav-links a:not(.cta) { display: none; } }
+
+.cta {
+  background: var(--green); color: #062014;
+  padding: 10px 20px; border-radius: 999px;
+  font-weight: 700; font-size: 14px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: transform .15s, box-shadow .15s;
+  border: none; cursor: pointer;
+}
+.cta:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(0,232,122,.4); }
+.cta-outline {
+  background: transparent; color: var(--green);
+  border: 1px solid var(--green);
+  padding: 10px 20px; border-radius: 999px;
+  font-weight: 700; font-size: 14px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.cta-outline:hover { background: rgba(0,232,122,.1); }
+
+/* HERO */
+header.hero {
+  padding: 140px 0 100px;
+  background:
+    radial-gradient(at 20% 0%, rgba(0,232,122,.15) 0%, transparent 40%),
+    radial-gradient(at 80% 30%, rgba(34,204,255,.10) 0%, transparent 40%),
+    radial-gradient(at 50% 100%, rgba(170,102,255,.08) 0%, transparent 50%),
+    var(--bg);
+  position: relative; overflow: hidden;
+}
+header.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,41,59,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,41,59,.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; text-align: center; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 999px;
+  background: rgba(0,232,122,.1);
+  border: 1px solid rgba(0,232,122,.3);
+  color: var(--green); font-size: 13px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.eyebrow .pulse {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,232,122,.5); }
+  50% { opacity: .8; box-shadow: 0 0 0 8px rgba(0,232,122,0); }
+}
+
+h1.hero-title {
+  font-size: clamp(40px, 6vw, 82px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+h1.hero-title .accent { color: var(--green); -webkit-text-fill-color: var(--green); }
+.hero-sub {
+  font-size: clamp(16px, 1.6vw, 20px);
+  color: var(--text-dim);
+  max-width: 720px; margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.hero-sub strong { color: var(--green); font-weight: 700; }
+.hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+.hero-ctas .cta, .hero-ctas .cta-outline { padding: 14px 28px; font-size: 16px; }
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  max-width: 720px; margin: 0 auto;
+}
+@media (max-width: 600px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } }
+.stat-box {
+  background: rgba(15,30,53,.5);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 12px;
+  text-align: center;
+}
+.stat-box .num {
+  font-size: 36px; font-weight: 900; color: var(--green);
+  line-height: 1; letter-spacing: -1px;
+}
+.stat-box .lbl {
+  font-size: 11px; color: var(--text-dim-2);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-top: 8px; font-weight: 700;
+}
+
+/* SECTIONS */
+section { padding: 100px 0; position: relative; }
+section.alt { background: var(--bg-2); }
+h2.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 16px;
+  text-align: center;
+}
+h2.section-title .accent { color: var(--green); }
+p.section-sub {
+  font-size: 16px;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+/* PROBLEMA */
+.problems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 900px) { .problems { grid-template-columns: 1fr; } }
+.problem-card {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.problem-card .icon { font-size: 40px; margin-bottom: 16px; }
+.problem-card h3 { font-size: 18px; color: #fff; margin-bottom: 8px; }
+.problem-card p { color: var(--text-dim); font-size: 14px; }
+
+/* SOLUCION FLOW */
+.flow-diagram {
+  display: flex; justify-content: center; align-items: center; gap: 12px;
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.flow-box {
+  background: var(--bg-2);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 13px; font-weight: 700;
+  text-align: center;
+}
+.flow-box.brain {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-2) 100%);
+  color: #062014;
+  border-color: transparent;
+  font-size: 14px;
+  box-shadow: 0 0 40px rgba(0,232,122,.3);
+}
+.flow-box.cyan { color: var(--cyan); border-color: rgba(34,204,255,.4); }
+.flow-arrow { color: var(--green); font-weight: 900; font-size: 18px; }
+
+/* MODULOS GRID */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.mod-card {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform .15s, border-color .15s;
+}
+.mod-card:hover { transform: translateY(-2px); border-color: rgba(0,232,122,.4); }
+.mod-card .icon { font-size: 28px; margin-bottom: 8px; }
+.mod-card h4 { font-size: 14px; color: #fff; margin-bottom: 4px; }
+.mod-card p { font-size: 12px; color: var(--text-dim); line-height: 1.4; }
+
+/* COMPARATIVA */
+.vs-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; margin: 0 auto; }
+@media (max-width: 720px) { .vs-block { grid-template-columns: 1fr; } }
+.vs-side {
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid;
+}
+.vs-side.sin { background: rgba(239,68,68,.05); border-color: rgba(239,68,68,.3); }
+.vs-side.con { background: rgba(0,232,122,.08); border-color: rgba(0,232,122,.4); }
+.vs-side h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 800; }
+.vs-side.sin h3 { color: #ef4444; }
+.vs-side.con h3 { color: var(--green); }
+.vs-side ul { list-style: none; }
+.vs-side ul li { padding-left: 24px; position: relative; margin-bottom: 12px; font-size: 14px; color: var(--text); }
+.vs-side.sin ul li::before { content: "✕"; position: absolute; left: 0; color: #ef4444; font-weight: 900; }
+.vs-side.con ul li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+.vs-saving {
+  margin-top: 20px; padding: 14px; border-radius: 10px;
+  background: rgba(0,0,0,.3); text-align: center;
+  font-size: 13px; color: var(--text-dim);
+}
+.vs-saving strong { color: var(--green); font-size: 22px; display: block; margin-top: 4px; }
+
+/* CTA SECTION */
+.cta-section {
+  background:
+    radial-gradient(at 50% 50%, rgba(0,232,122,.1) 0%, transparent 60%),
+    var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 100px 0;
+  text-align: center;
+}
+.cta-section h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: #fff; margin-bottom: 16px; letter-spacing: -1.5px; }
+.cta-section h2 .accent { color: var(--green); }
+.cta-section p { color: var(--text-dim); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.cta-section .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-section .cta, .cta-section .cta-outline { padding: 16px 32px; font-size: 16px; }
+
+/* FORM B2B */
+.contact-form {
+  max-width: 480px; margin: 40px auto 0;
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: left;
+  display: none;
+}
+.contact-form.open { display: block; }
+.contact-form h3 { font-size: 18px; color: #fff; margin-bottom: 16px; }
+.contact-form label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--green); }
+.contact-form button { width: 100%; }
+
+/* FOOTER */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 60px 0 40px;
+}
+footer .row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+@media (max-width: 720px) { footer .row { grid-template-columns: 1fr; } }
+footer h4 { color: #fff; font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1.5px; }
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 8px; }
+footer ul li a, footer ul li { color: var(--text-dim); font-size: 14px; text-decoration: none; }
+footer ul li a:hover { color: var(--green); }
+footer .copy {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  display: flex; justify-content: space-between;
+  font-size: 13px; color: var(--text-dim-2);
+}
+@media (max-width: 720px) { footer .copy { flex-direction: column; gap: 12px; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container row">
+    <a href="#" class="brand">SCALA<span class="dot">.</span>OS</a>
+    <div class="nav-links">
+      <a href="#problema">El problema</a>
+      <a href="#solucion">La solución</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#comparativa">Por qué SCALA</a>
+      <a href="https://demo.scalaia.com.ar" target="_blank" rel="noopener" class="cta">Probar demo →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="eyebrow"><span class="pulse"></span> EMPRESA ECOMMERCE LLAVE EN MANO</div>
+    <h1 class="hero-title">El cerebro operativo<br>de tu <span class="accent">e-commerce.</span></h1>
+    <p class="hero-sub">
+      <strong>38 módulos</strong> integrados, IA propia conectada al sistema entero, y decisiones autónomas 24/7
+      para sellers profesionales de MercadoLibre, Tienda Nube y MercadoPago. Implementamos el sistema completo, no solo una consultoria.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://demo.scalaia.com.ar" target="_blank" rel="noopener" class="cta">🎬 Probar la demo</a>
+      <a href="#contacto" class="cta-outline">Acceso B2B</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="num">38</div><div class="lbl">Módulos</div></div>
+      <div class="stat-box"><div class="num">47</div><div class="lbl">Tools IA</div></div>
+      <div class="stat-box"><div class="num">14</div><div class="lbl">Triggers</div></div>
+      <div class="stat-box"><div class="num">24/7</div><div class="lbl">Operación</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEMA -->
+<section id="problema">
+  <div class="container">
+    <h2 class="section-title">¿Por qué un seller<br>pierde plata <span class="accent">todos los días?</span></h2>
+    <p class="section-sub">Los sellers de MercadoLibre operan reaccionando. SCALA OS resuelve los 3 problemas estructurales que les comen el margen.</p>
+    <div class="problems">
+      <div class="problem-card"><div class="icon">🧩</div><h3>Datos fragmentados</h3><p>Ventas en ML, cobros en MP, productos en TN, IVA en AFIP, costos en Excel. Para una decisión simple, 5 pestañas abiertas.</p></div>
+      <div class="problem-card"><div class="icon">⏱️</div><h3>Decisiones manuales</h3><p>Pricing, descuentos, pausas, respuestas a preguntas, control de margen. Todo a mano, todos los días.</p></div>
+      <div class="problem-card"><div class="icon">🤖</div><h3>IA genérica desconectada</h3><p>ChatGPT no ve tus ventas, no puede pausar nada, no sabe tu margen. Recomienda en el vacío.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCION -->
+<section id="solucion" class="alt">
+  <div class="container">
+    <h2 class="section-title">Una sola plataforma.<br>Un solo <span class="accent">cerebro.</span></h2>
+    <p class="section-sub">Las integraciones externas alimentan el Brain. El Brain alimenta los 38 módulos. Los módulos exponen las decisiones al humano o las ejecutan solos.</p>
+    <div class="flow-diagram">
+      <div class="flow-box">MercadoLibre · MP · TN · AFIP</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box brain">SCALA Brain · IA</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box cyan">38 módulos UI</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Acción real</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULOS -->
+<section id="modulos">
+  <div class="container">
+    <h2 class="section-title">38 módulos. <span class="accent">Un sistema vivo.</span></h2>
+    <p class="section-sub">Cada módulo lee del Brain y ejecuta acciones reales en el ecosistema. De pricing fiscal a respuestas IA, de stock predictivo a pauta Ads.</p>
+    <div class="modules-grid">
+      <div class="mod-card"><div class="icon">🧠</div><h4>SCALA Brain</h4><p>IA estratégica + 14 triggers</p></div>
+      <div class="mod-card"><div class="icon">💬</div><h4>SCALA AI</h4><p>Chat con 47 tools encadenables</p></div>
+      <div class="mod-card"><div class="icon">🤖</div><h4>SCALA Agent</h4><p>Operador autónomo 24/7</p></div>
+      <div class="mod-card"><div class="icon">📣</div><h4>Mercado Ads</h4><p>Decisiones diarias IA</p></div>
+      <div class="mod-card"><div class="icon">⚡</div><h4>Repricing</h4><p>Precios dinámicos con safety rails</p></div>
+      <div class="mod-card"><div class="icon">🚀</div><h4>Auto Publisher</h4><p>Carga masiva ML + TN</p></div>
+      <div class="mod-card"><div class="icon">💸</div><h4>Ventas</h4><p>MeLi + TN + MP unificado</p></div>
+      <div class="mod-card"><div class="icon">📦</div><h4>Stock + SKU</h4><p>Predicción de quiebre</p></div>
+      <div class="mod-card"><div class="icon">💰</div><h4>P&L Fiscal</h4><p>IVA, IIBB, retenciones, equilibrio</p></div>
+      <div class="mod-card"><div class="icon">🧾</div><h4>Facturación AFIP</h4><p>CAE automático en cada venta</p></div>
+      <div class="mod-card"><div class="icon">🏪</div><h4>Mi Página</h4><p>Storefront ML como marca</p></div>
+      <div class="mod-card"><div class="icon">🕵️</div><h4>Spy</h4><p>Inteligencia competitiva</p></div>
+      <div class="mod-card"><div class="icon">⚔️</div><h4>Disputa</h4><p>¿Vale la pena pelear?</p></div>
+      <div class="mod-card"><div class="icon">👥</div><h4>CRM</h4><p>LTV · segmentos · cohortes</p></div>
+      <div class="mod-card"><div class="icon">🚚</div><h4>Logística</h4><p>Etiquetas + tracking + reclamos</p></div>
+      <div class="mod-card"><div class="icon">🎬</div><h4>Video Factory</h4><p>Videos IA para Reels/TikTok</p></div>
+    </div>
+    <p style="text-align:center; margin-top:32px; color:var(--text-dim-2); font-size:13px">+22 módulos más</p>
+  </div>
+</section>
+
+<!-- COMPARATIVA -->
+<section id="comparativa" class="alt">
+  <div class="container">
+    <h2 class="section-title">El contraste<br>en <span class="accent">plata real.</span></h2>
+    <p class="section-sub">Lo que un seller medio pierde por mes operando manual vs. con SCALA OS gestionando todo.</p>
+    <div class="vs-block">
+      <div class="vs-side sin">
+        <h3>SIN SCALA OS</h3>
+        <ul>
+          <li>~$180k/mes en margen perdido por mal pricing</li>
+          <li>~$45k/mes en Ads quemados sin ROI</li>
+          <li>~$80k por cada quiebre de stock no anticipado</li>
+          <li>~$25k/mes en reclamos mal peleados</li>
+          <li>~50 hs/mes del dueño cruzando datos</li>
+        </ul>
+        <div class="vs-saving">Costo total estimado en fugas evitables<strong style="color:#ef4444">~$330.000/mes</strong></div>
+      </div>
+      <div class="vs-side con">
+        <h3>CON SCALA OS</h3>
+        <ul>
+          <li>Pricing automático con safety rails</li>
+          <li>Ads optimizados por IA c/24 hs</li>
+          <li>Predicción de quiebre 7 días antes</li>
+          <li>Disputa: pelea sólo lo que vale</li>
+          <li>El dueño revisa el dashboard 5 min/día</li>
+        </ul>
+        <div class="vs-saving">Recupero típico mensual<strong>+$330.000</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contacto">
+  <div class="container">
+    <h2>Probá SCALA OS<br>en <span class="accent">vivo</span>, ahora.</h2>
+    <p>Acceso instantáneo a la demo con datos de un seller ficticio. Navegá libre: ningún cambio toca tu cuenta de MercadoLibre.</p>
+    <div class="cta-row">
+      <a href="https://demo.scalaia.com.ar" target="_blank" rel="noopener" class="cta">🎬 Abrir la demo</a>
+      <button class="cta-outline" id="toggle-form">Solicitar acceso B2B</button>
+    </div>
+    <form class="contact-form" id="b2b-form" action="mailto:info@scalaia.com.ar" method="POST" enctype="text/plain">
+      <h3>Quiero SCALA OS para mi tienda</h3>
+      <label>Nombre</label><input type="text" name="nombre" required>
+      <label>Email</label><input type="email" name="email" required>
+      <label>Tu cuenta de MercadoLibre</label><input type="text" name="meli" placeholder="@tu_usuario o MLA del seller" required>
+      <label>Volumen mensual estimado (en pesos)</label><input type="text" name="volumen" placeholder="ej: $500.000 - $5.000.000">
+      <label>Contame qué buscás resolver (opcional)</label><textarea name="mensaje" rows="3"></textarea>
+      <button type="submit" class="cta">Enviar solicitud</button>
+      <p style="color:var(--text-dim-2); font-size:12px; margin-top:12px; text-align:center">Tambien podes escribir por WhatsApp: +54 9 11 2596-5000</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div>
+        <a href="#" class="brand" style="font-size:22px">SCALA<span class="dot">.</span>OS</a>
+        <p style="color:var(--text-dim); font-size:14px; margin-top:12px; max-width:380px">
+          Sistema operativo para sellers profesionales de MercadoLibre. Construido en Argentina.
+        </p>
+      </div>
+      <div>
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="#modulos">Módulos</a></li>
+          <li><a href="https://demo.scalaia.com.ar" target="_blank" rel="noopener">Demo en vivo</a></li>
+          <li><a href="#comparativa">Comparativa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#contacto">Acceso B2B</a></li>
+          <li><a href="mailto:info@scalaia.com.ar">info@scalaia.com.ar</a></li>
+          <li><a href="https://wa.me/5491125965000" target="_blank" rel="noopener">+54 9 11 2596-5000</a></li>
+          <li><a href="terminos.html">Terminos y condiciones</a></li>
+          <li><a href="privacidad.html">Politica de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <div>© 2026 SCALA OS · Todos los derechos reservados.</div>
+      <div>Hecho en Buenos Aires, Argentina 🇦🇷</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('toggle-form').addEventListener('click', () => {
+    document.getElementById('b2b-form').classList.toggle('open');
+    document.getElementById('b2b-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+
+</body>
+</html>
